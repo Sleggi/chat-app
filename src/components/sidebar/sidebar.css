@@ -1,0 +1,66 @@
+.sidebar {
+    flex: 0.35;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar__search {
+    display: flex;
+    align-items: center;
+    height: 3.9rem;
+    padding: 1em;
+    background-color: var(--bg-color);
+}
+
+.sidebar__searchConteiner {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background-color: var(--white-color);
+    border-radius: 20px;
+    height: 3.9rem;
+    overflow: hidden;
+
+}
+
+.sidebar__searchConteiner .MuiSvgIcon-root {
+    color: gray;
+    font-size: 3rem;
+    padding-left: .5em;
+    cursor: pointer;
+}
+
+.sidebar__searchConteiner input {
+    border: none;
+    margin-left: 1em;
+    font-size: 1.6rem;
+    outline: none;
+    width: 70%;
+
+}
+
+.sidebar__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 2em;
+    border-right: 1px solid #6c7a86;
+}
+
+.sidebar__headerRight {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    min-width: 15rem;
+}
+
+.sidebar__headerRight button {
+    padding: .8em !important;
+}
+
+.sidebar__headerRight button:hover {
+    background-color: var(--additional-color) !important;
+}
+
+.sidebar__headerRight button span svg {
+    font-size: 1.8rem !important;
+}

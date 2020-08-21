@@ -5,6 +5,10 @@
   --additional-color: #00E0C7;
 }
 
+html {
+  font-size: 10px;
+}
+
 * {
   margin: 0;
   padding: 0;
