@@ -1,3 +1,10 @@
+:root {
+  --main-bg-color: #009394;
+  --bg-color: #006270;
+  --white-color: #FFFFFF;
+  --additional-color: #00E0C7;
+}
+
 * {
   margin: 0;
   padding: 0;
