@@ -2,6 +2,12 @@
     flex: 0.35;
     display: flex;
     flex-direction: column;
+    background-color: var(--second-color);
+}
+
+.sidebar__chats {
+    flex: 1;
+    overflow: auto;
 }
 
 .sidebar__search {
@@ -43,7 +49,15 @@
     display: flex;
     justify-content: space-between;
     padding: 2em;
-    border-right: 1px solid #6c7a86;
+}
+
+.sidebar__headerLeft {
+    display: flex;
+    align-items: center;
+}
+
+.sidebar__headerLeft .MuiAvatar-root {
+    margin-right: 1em;
 }
 
 .sidebar__headerRight {
@@ -58,9 +72,5 @@
 }
 
 .sidebar__headerRight button:hover {
-    background-color: var(--additional-color) !important;
-}
-
-.sidebar__headerRight button span svg {
-    font-size: 1.8rem !important;
+    background-color: var(--white-color) !important;
 }

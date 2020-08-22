@@ -1,0 +1,33 @@
+.sidebarChat {
+    display: flex;
+    padding: 2em;
+    cursor: pointer;
+}
+
+.sidebarChat:hover {
+    background-color: var(--main-color);
+}
+
+.sidebarChat:hover .sidebarChat__info h2 {
+    color: var(--white-color);
+}
+
+.sidebarChat__info {
+    margin-left: 1em;
+}
+
+.sidebarChat__info h2 {
+    margin-bottom: .3em;
+}
+
+.sidebar__chats button {
+    margin-left: 1em;
+}
+
+.sidebar__chats button:hover {
+    background-color: var(--white-color) !important;
+}
+
+.sidebar__chats button span svg {
+    font-size: 2rem !important;
+}

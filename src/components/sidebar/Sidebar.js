@@ -12,7 +12,10 @@ const Sidebar = () => {
     return (
         <div className="sidebar">
             <div className="sidebar__header">
-                <Avatar />
+                <div className="sidebar__headerLeft">
+                    <Avatar />
+                    <h2>Name</h2>
+                </div>
                 <div className="sidebar__headerRight">
                     <IconButton>
                         <DonutLargeIcon />
@@ -33,6 +36,8 @@ const Sidebar = () => {
 
             </div>
             <div className="sidebar__chats">
+                <SidebarChat addNewChat />
+                <SidebarChat />
                 <SidebarChat />
             </div>
         </div>

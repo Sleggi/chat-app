@@ -1,8 +1,9 @@
 :root {
-  --main-bg-color: #009394;
-  --bg-color: #006270;
+  --main-color: #638bfb;
+  --second-color: #f7f8f9;
   --white-color: #FFFFFF;
-  --additional-color: #00E0C7;
+  --silver-color: rgba(75, 75, 75, 0.1);
+
 }
 
 html {
@@ -12,4 +13,38 @@ html {
 * {
   margin: 0;
   padding: 0;
+}
+
+body {
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 1rem;
+  font-weight: 300;
+}
+
+/* Typography */
+
+h1,
+h2,
+h3 {
+  font-family: 'Lora', serif;
+  font-weight: 400;
+  color: var(--main-color);
+}
+
+h2 {
+  font-size: 1.8rem;
+}
+
+h3 {
+  font-size: 1.6rem;
+}
+
+p {
+  font-size: 1.4rem;
+  color: black;
+}
+
+/* SVGs */
+.MuiSvgIcon-root {
+  font-size: 2rem !important;
 }

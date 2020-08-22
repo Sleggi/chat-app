@@ -1,5 +1,5 @@
 .app {
-  background-color: var(--main-bg-color);
+  background-color: var(--main-color);
   height: 100vh;
   display: grid;
   place-items: center;
@@ -9,7 +9,6 @@
   display: flex;
   width: 95%;
   height: 95%;
-  background-color: var(--bg-color);
+  background-color: var(--white-color);
   box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.7);
-  border-radius: 10px;
 }
