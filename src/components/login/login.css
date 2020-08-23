@@ -1,0 +1,28 @@
+.login {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--main-color);
+    display: grid;
+    place-items: center;
+}
+
+.login__container {
+    padding: 10em;
+    text-align: center;
+    border-radius: 20px;
+    background-color: var(--white-color);
+    box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.7);
+}
+
+.login__container button {
+    margin-top: 5em;
+    padding: .7em;
+    text-transform: inherit !important;
+    transition: all .3s ease-in-out;
+    border: 1px solid var(--silver-color);
+    font-size: 1.2rem;
+}
+
+.login__container button:hover {
+    background-color: var(--silver-color);
+}
