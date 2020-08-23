@@ -2,8 +2,7 @@
   --main-color: #638bfb;
   --second-color: #f7f8f9;
   --white-color: #FFFFFF;
-  --silver-color: rgba(75, 75, 75, 0.1);
-
+  --silver-color: rgba(75, 75, 75, .2);
 }
 
 html {
