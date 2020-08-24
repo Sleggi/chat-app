@@ -7,6 +7,8 @@ import MoreVertIcon from '@material-ui/icons/MoreVert'
 import InsertEmoticonIcon from '@material-ui/icons/InsertEmoticon'
 import MicIcon from '@material-ui/icons/Mic'
 import db from '../../firebase'
+import firebase from 'firebase'
+import { useStateValue } from '../../StateProvider'
 
 
 function Chat() {
@@ -14,14 +16,21 @@ function Chat() {
     const [seed, setSeed] = useState('')
     const { roomId } = useParams()
     const [roomName, setRoomName] = useState('')
+    const [messages, setMessages] = useState([])
+    const [{ user }, dispatch] = useStateValue()
 
-
+    useEffect(() => {
+        db.collection('rooms').doc()
+    })
 
     useEffect(() => {
         if (roomId) {
             db.collection('rooms').doc(roomId).onSnapshot((snapshot) =>
                 setRoomName(snapshot.data().name)
             )
+
+            db.collection('rooms').doc(roomId).collection('messages')
+                .orderBy('timestamp', 'asc').onSnapshot(snapshot => (setMessages(snapshot.docs.map(doc => doc.data()))))
         }
     }, [roomId])
 
@@ -31,7 +40,11 @@ function Chat() {
 
     const sendMessage = (e) => {
         e.preventDefault()
-        console.log(input)
+        db.collection('rooms').doc(roomId).collection('messages').add({
+            message: input,
+            name: user.displayName,
+            timestamp: firebase.firestore.FieldValue.serverTimestamp()
+        })
         setInput('')
     }
 
@@ -41,7 +54,7 @@ function Chat() {
                 <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`} />
                 <div className="chat__headerInfo">
                     <h3>{roomName}</h3>
-                    <p>Last seen at...</p>
+                    <p>Last message in {new Date(messages[messages.length - 1]?.timestamp?.toDate()).toLocaleTimeString()}</p>
                 </div>
                 <div className="chat__headerRight">
                     <IconButton>
@@ -56,14 +69,14 @@ function Chat() {
                 </div>
             </div>
             <div className="chat__body">
+                {messages.map(message => (
+                    <p className={`chat__message ${message.name === user.displayName && `chat__reciever`}`}>
+                        <span className='chat__name'>{message.name}</span>
+                        {message.message}
+                        <span className='chat__timeStamp'>{new Date(message.timestamp?.toDate()).toLocaleTimeString()}</span>
+                    </p>
+                ))}
 
-                <p className={`chat__message ${true && `chat__reciever`}`}>
-                    <span className='chat__name'>Pop</span>
-                Hey
-                <span className='chat__timeStamp'>3:50pm</span>
-                </p>
-                <p className="chat__message">Hey</p>
-                <p className="chat__message">Hey</p>
             </div>
             <div className="chat__footer">
                 <IconButton>

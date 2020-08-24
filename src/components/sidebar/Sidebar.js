@@ -7,10 +7,12 @@ import ChatIcon from '@material-ui/icons/Chat'
 import MoreVertIcon from '@material-ui/icons/MoreVert'
 import { SearchOutlined } from '@material-ui/icons'
 import db from '../../firebase';
+import { useStateValue } from '../../StateProvider'
 
 
 const Sidebar = () => {
     const [rooms, setRooms] = useState([])
+    const [{ user }, dispatch] = useStateValue()
 
     useEffect(() => {
         // go to database 'rooms' coolection. on any change of snapshot(like screenshot)onSnapshot works in realtime (updating, deleting)
@@ -36,8 +38,8 @@ const Sidebar = () => {
         <div className="sidebar">
             <div className="sidebar__header">
                 <div className="sidebar__headerLeft">
-                    <Avatar />
-                    <h2>Name</h2>
+                    <Avatar src={user?.photoURL} />
+                    <h2>{user?.displayName}</h2>
                 </div>
                 <div className="sidebar__headerRight">
                     <IconButton>
