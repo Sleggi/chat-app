@@ -4,6 +4,10 @@
     cursor: pointer;
 }
 
+a {
+    text-decoration: none !important;
+}
+
 .sidebarChat:hover {
     background-color: var(--main-color);
 }
@@ -12,17 +16,28 @@
     color: var(--white-color);
 }
 
+.sidebar__chats button {
+    margin-left: 1em;
+}
+
 .sidebarChat__info {
     margin-left: 1em;
+    display: flex;
+    width: 100%;
+    align-items: center;
+
+}
+
+.sidebarChat__info button {
+    margin-left: auto;
 }
 
 .sidebarChat__info h2 {
     margin-bottom: .3em;
 }
 
-.sidebar__chats button {
-    margin-left: 1em;
-}
+
+
 
 .sidebar__chats button:hover {
     background-color: var(--white-color) !important;

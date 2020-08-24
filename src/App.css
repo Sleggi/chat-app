@@ -8,9 +8,9 @@
 .app__body {
   display: flex;
   width: 95%;
-  height: 95%;
+  max-height: 95%;
+  overflow: hidden;
   background-color: var(--white-color);
   box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.7);
   border-radius: 20px;
-
 }

@@ -26,7 +26,7 @@ function Chat() {
     useEffect(() => {
         if (roomId) {
             db.collection('rooms').doc(roomId).onSnapshot((snapshot) =>
-                setRoomName(snapshot.data().name)
+                setRoomName(snapshot.data()?.name)
             )
 
             db.collection('rooms').doc(roomId).collection('messages')
@@ -69,8 +69,8 @@ function Chat() {
                 </div>
             </div>
             <div className="chat__body">
-                {messages.map(message => (
-                    <p className={`chat__message ${message.name === user.displayName && `chat__reciever`}`}>
+                {messages.map((message, index) => (
+                    <p key={index} className={`chat__message ${message.name === user.displayName && `chat__reciever`}`}>
                         <span className='chat__name'>{message.name}</span>
                         {message.message}
                         <span className='chat__timeStamp'>{new Date(message.timestamp?.toDate()).toLocaleTimeString()}</span>
