@@ -14,12 +14,14 @@
     box-shadow: -1px 4px 20px -6px rgba(0, 0, 0, 0.7);
 }
 
+.login__methods {
+    display: flex;
+    justify-content: space-evenly;
+}
+
 .login__container button {
-    margin-top: 5em;
-    padding: .7em;
-    text-transform: inherit !important;
+    margin-top: 2em;
     transition: all .3s ease-in-out;
-    border: 1px solid var(--silver-color);
     font-size: 1.2rem;
 }
 

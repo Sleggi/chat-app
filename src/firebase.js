@@ -26,10 +26,12 @@ const auth = firebase.auth()
 // Authentication with google
 
 const provider = new firebase.auth.GoogleAuthProvider();
+const provider2 = new firebase.auth.GithubAuthProvider();
 
 export {
     auth,
-    provider
+    provider,
+    provider2
 };
 
 export default db;

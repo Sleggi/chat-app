@@ -54,7 +54,8 @@ function Chat() {
                 <Avatar src={`https://avatars.dicebear.com/api/human/${seed}.svg`} />
                 <div className="chat__headerInfo">
                     <h3>{roomName}</h3>
-                    <p>Last message in {new Date(messages[messages.length - 1]?.timestamp?.toDate()).toLocaleTimeString()}</p>
+                    <p>Последнее сообщение {new Date(messages[messages.length - 1]?.timestamp?.toDate()).toLocaleTimeString()
+                        === "Invalid Date" ? '...' : new Date(messages[messages.length - 1]?.timestamp?.toDate()).toLocaleTimeString()} </p>
                 </div>
                 <div className="chat__headerRight">
                     <IconButton>

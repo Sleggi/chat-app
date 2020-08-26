@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import './sidebar.css';
 import SidebarChat from './sidebar-chats/SidebarChat'
 import { Avatar, IconButton } from '@material-ui/core'
@@ -8,11 +8,17 @@ import MoreVertIcon from '@material-ui/icons/MoreVert'
 import { SearchOutlined } from '@material-ui/icons'
 import db from '../../firebase';
 import { useStateValue } from '../../StateProvider'
+import { ThemesContext } from '../../ThemesProvider'
 
 
 const Sidebar = () => {
+    const { themes } = useContext(ThemesContext)
+    const [theme, setTheme] = useState(themes.light)
     const [rooms, setRooms] = useState([])
     const [{ user }, dispatch] = useStateValue()
+
+
+
 
     useEffect(() => {
         // go to database 'rooms' coolection. on any change of snapshot(like screenshot)onSnapshot works in realtime (updating, deleting)
@@ -34,8 +40,16 @@ const Sidebar = () => {
         }
     }, [])
 
+    const toggleTheme = () => {
+        theme === themes.rose ?
+            setTheme(themes.light) :
+            setTheme(themes.rose)
+
+    }
+
+
     return (
-        <div className="sidebar">
+        <div className="sidebar" style={theme}>
             <div className="sidebar__header">
                 <div className="sidebar__headerLeft">
                     <Avatar src={user?.photoURL} />
@@ -43,7 +57,7 @@ const Sidebar = () => {
                 </div>
                 <div className="sidebar__headerRight">
                     <IconButton>
-                        <DonutLargeIcon />
+                        <DonutLargeIcon onClick={toggleTheme} />
                     </IconButton>
                     <IconButton>
                         <ChatIcon />
@@ -56,7 +70,7 @@ const Sidebar = () => {
             <div className="sidebar__search">
                 <div className="sidebar__searchConteiner">
                     <SearchOutlined />
-                    <input placeholder='Search' type="text" />
+                    <input placeholder='Поиск' type="text" />
                 </div>
 
             </div>

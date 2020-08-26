@@ -6,9 +6,13 @@ import DeleteIcon from '@material-ui/icons/Delete'
 import db from '../../../firebase';
 import { Link } from 'react-router-dom'
 
+
+
 function SidebarChat({ addNewChat, id, name }) {
     const [seed, setSeed] = useState('')
     const [messages, setMessages] = useState('')
+
+
 
     useEffect(() => {
         if (id) {
@@ -35,8 +39,11 @@ function SidebarChat({ addNewChat, id, name }) {
 
     const deleteChat = () => {
         const deleteRoom = window.confirm('Удалить чат ?')
-        if (deleteRoom) { db.collection('rooms').doc(id).delete() }
+        if (deleteRoom) {
+            db.collection('rooms').doc(id).delete()
+        }
     }
+
 
     return !addNewChat ? (
         <Link to={`/rooms/${id}`}>
@@ -53,6 +60,8 @@ function SidebarChat({ addNewChat, id, name }) {
                 </div>
             </div>
         </Link>
+
+
     ) : (
 
             <div className="sidebarChat_add">
@@ -63,6 +72,8 @@ function SidebarChat({ addNewChat, id, name }) {
 
 
         )
+
+
 }
 
 export default SidebarChat
