@@ -5,4 +5,4 @@ Created it to learn more about firebase.
 1. ability to login with google, github
 2. create, delete rooms
 3. send, delete messages
-###### app link - https://chat-app-62224.firebaseapp.com/
+
